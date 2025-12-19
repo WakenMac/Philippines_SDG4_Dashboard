@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import silhouette_score, davies_bouldin_score, calinski_harabasz_score
+import joblib
 
 # 1. Load data
 df = pd.read_csv('data_wrangling\\Cleaned_Philippines_Education_Statistics.csv')
@@ -89,6 +90,7 @@ plt.show()
 # 5. Interpret the Clusters
 print("--- Cluster Averages ---")
 kmeans = KMeans(n_clusters=4, random_state=77, n_init=10, verbose=0)
+joblib.dump(kmeans, 'import_models//kmeans_model.pkl') # Saves the model
 regional_profile['Cluster'] = kmeans.fit_predict(X_scaled)
 # print(regional_profile.groupby('Cluster')[features].mean())
 

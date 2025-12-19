@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: my-streamlit-app  # Change this to your preferred app name
+    env: python
+    plan: free              # Ensures you stay on the free tier
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run app.py --server.port $PORT --server.address 0.0.0.0
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.10.0       # Recommended version for stability
