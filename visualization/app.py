@@ -573,16 +573,16 @@ with tab_ml:
                 # Define cluster profiles
                 cluster_names = {
                     '0': 'Passers with Low Enrollees',
-                    '1': '📈 Growing Regions',
-                    '2': '⚠️ Emerging Markets',
-                    '3': '🌟 High Performers'
+                    '1': 'Growing Regions',
+                    '2': 'Emerging Markets',
+                    '3': 'High Performers'
                 }
                 
                 cluster_colors = {
-                    '0': '#FFA500',  # Orange
-                    '1': '#ef4444',  # Red
-                    '3': '#10b981',  # Green
-                    '2': '#800080'   # Purple
+                    '0': '#ef4444',  # Orange
+                    '1': '#FFA500',  # Red
+                    '2': '#800080',  # Purple
+                    '3': '#10b981'  # Green
                 }
                 
                 regional_profile['Cluster_Name'] = regional_profile['Cluster'].map(cluster_names)
@@ -610,9 +610,10 @@ with tab_ml:
                         },
                         template="plotly_white",
                         color_discrete_map={
-                            '🌟 High Performers': '#10b981',
-                            '📈 Growing Regions': '#f59e0b',
-                            '⚠️ Emerging Markets': '#ef4444'
+                            'Passers with Low Enrollees': '#ef4444',
+                            'Growing Regions': '#FFA500',
+                            'Emerging Markets': '#800080',
+                            'High Performers': '#10b981',                            
                         },
                         size_max=50
                     )
@@ -632,9 +633,10 @@ with tab_ml:
                         values=cluster_counts.values,
                         names=cluster_counts.index,
                         color_discrete_map={
-                            'High Performers': '#10b981',
-                            'Growing Regions': '#f59e0b',
-                            'Emerging Markets': '#ef4444'
+                            'Passers with Low Enrollees': '#ef4444',
+                            'Growing Regions': '#FFA500',
+                            'Emerging Markets': '#800080',
+                            'High Performers': '#10b981',   
                         },
                         template='plotly_white'
                     )
@@ -653,9 +655,10 @@ with tab_ml:
                     color="Cluster_Name",
                     hover_name="Geolocation",
                     color_discrete_map={
-                        'High Performers': '#10b981',
-                        'Growing Regions': '#f59e0b',
-                        'Emerging Markets': '#ef4444'
+                        'Passers with Low Enrollees': '#ef4444',
+                        'Growing Regions': '#FFA500',
+                        'Emerging Markets': '#800080',
+                        'High Performers': '#10b981',   
                     },
                     template="plotly_white",
                     size_max=30
@@ -709,7 +712,7 @@ with tab_ml:
                         
                         # Recommendations
                         st.markdown(f"**💡 Recommendations for {cluster_name}:**")
-                        if cluster_id == '0':
+                        if cluster_id == '3':
                             st.success("""
                             ✅ Maintain excellence - These regions are meeting or exceeding targets
                             
