@@ -586,7 +586,7 @@ with tab_ml:
                 }
                 
                 regional_profile['Cluster_Name'] = regional_profile['Cluster'].map(cluster_names)
-                regional_profile['Color'] = regional_profile['Cluster'].map(cluster_colors)
+                regional_profile['Color'] = regional_profile['Cluster'].map(cluster_colors) # Color mapping
                 
                 st.write("")
                 
@@ -609,12 +609,7 @@ with tab_ml:
                             'Cluster_Name': True
                         },
                         template="plotly_white",
-                        color_discrete_map={
-                            'Passers with Low Enrollees': '#ef4444',
-                            'Growing Regions': '#FFA500',
-                            'Emerging Markets': '#800080',
-                            'High Performers': '#10b981',                            
-                        },
+                        color_discrete_map=cluster_colors,
                         size_max=50
                     )
                     fig_clusters.update_layout(
@@ -632,12 +627,7 @@ with tab_ml:
                     fig_pie = px.pie(
                         values=cluster_counts.values,
                         names=cluster_counts.index,
-                        color_discrete_map={
-                            'Passers with Low Enrollees': '#ef4444',
-                            'Growing Regions': '#FFA500',
-                            'Emerging Markets': '#800080',
-                            'High Performers': '#10b981',   
-                        },
+                        color_discrete_map=cluster_colors,
                         template='plotly_white'
                     )
                     fig_pie.update_layout(height=500)
@@ -654,12 +644,7 @@ with tab_ml:
                     z="Cohort_Survival_Rate",
                     color="Cluster_Name",
                     hover_name="Geolocation",
-                    color_discrete_map={
-                        'Passers with Low Enrollees': '#ef4444',
-                        'Growing Regions': '#FFA500',
-                        'Emerging Markets': '#800080',
-                        'High Performers': '#10b981',   
-                    },
+                    color_discrete_map=cluster_colors,
                     template="plotly_white",
                     size_max=30
                 )
@@ -753,7 +738,7 @@ with tab_ml:
         with col_m1:
             st.metric("Model Type", "K-Means Clustering")
         with col_m2:
-            st.metric("Number of Clusters", "3")
+            st.metric("Number of Clusters", "4")
         with col_m3:
             st.metric("Features Used", "3 Metrics")
         
@@ -763,7 +748,7 @@ with tab_ml:
         ### Model Specifications
         
         **Algorithm**: K-Means Clustering (Unsupervised Learning)
-        - Groups regions into k=3 distinct clusters
+        - Groups regions into k=4 distinct clusters
         - Uses standardized features for fair comparison
         - Minimizes within-cluster variance
         
