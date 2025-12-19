@@ -610,10 +610,9 @@ with tab_ml:
                         },
                         template="plotly_white",
                         color_discrete_map={
-                            'Passers with Low Enrollees':'#FFA500',
                             '🌟 High Performers': '#10b981',
-                            '📈 Growing Regions': '#ef4444',
-                            '⚠️ Emerging Markets': '#800080'
+                            '📈 Growing Regions': '#f59e0b',
+                            '⚠️ Emerging Markets': '#ef4444'
                         },
                         size_max=50
                     )
@@ -633,10 +632,9 @@ with tab_ml:
                         values=cluster_counts.values,
                         names=cluster_counts.index,
                         color_discrete_map={
-                            'Passers with Low Enrollees':'#FFA500', 
-                            '🌟 High Performers': '#10b981',
-                            '📈 Growing Regions': '#ef4444',
-                            '⚠️ Emerging Markets': '#800080'
+                            'High Performers': '#10b981',
+                            'Growing Regions': '#f59e0b',
+                            'Emerging Markets': '#ef4444'
                         },
                         template='plotly_white'
                     )
@@ -655,10 +653,9 @@ with tab_ml:
                     color="Cluster_Name",
                     hover_name="Geolocation",
                     color_discrete_map={
-                        'Passers with Low Enrollees':'#FFA500', 
-                        '🌟 High Performers': '#800080',
-                        '📈 Growing Regions': '#10b981',
-                        '⚠️ Emerging Markets': '#ef4444'
+                        'High Performers': '#10b981',
+                        'Growing Regions': '#f59e0b',
+                        'Emerging Markets': '#ef4444'
                     },
                     template="plotly_white",
                     size_max=30
@@ -723,13 +720,17 @@ with tab_ml:
                         elif cluster_id == '1':
                             st.info("""
                             📈 Strong momentum - These regions show good performance
+                            
                             📈 Sustain growth trajectory with targeted interventions
+                            
                             📈 Monitor closely for factors enabling success
                             """)
                         else:
                             st.warning("""
                             ⚠️ Priority support needed - These regions require focused attention
+                            
                             ⚠️ Implement evidence-based improvement programs
+                            
                             ⚠️ Increase resource allocation and monitoring
                             """)
                 
